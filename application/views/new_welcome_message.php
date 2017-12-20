@@ -123,12 +123,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <!-- 第4个row，显示主要新闻 -->
       <div class="row">
-        <div id="content">
+        <div class="col-xl-6">
+          <div id="content">
+            <?php echo $article->content; ?>
+          </div>
         </div>
       </div>
     </div>
     <script>
-      $("#content").load("<?php echo base_url("article/id/1"); ?>");
+      //使用js调用控制器，以ajax方法实现动态填充内容
+      //碰到的问题是，ajax获取的内容，后面的添加图片属性操作失败了，应该是两者速率不一致造成
+      //$("#content").load("<?php echo base_url("article/id/1"); ?>");
+
+      //对content中的img元素添加img-fluid属性，可以使图片自动缩放
+      $("#content img").addClass("img-fluid");
     </script>
   </body>
 </html>
