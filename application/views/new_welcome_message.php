@@ -123,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
       <!-- 第4个row，显示主要新闻 -->
       <div class="row">
-        <div class="col-xl-6">
+        <div class="col-xl-12">
           <div id="content">
             <?php echo $article->content; ?>
           </div>
@@ -131,12 +131,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
     <script>
-      //使用js调用控制器，以ajax方法实现动态填充内容
-      //碰到的问题是，ajax获取的内容，后面的添加图片属性操作失败了，应该是两者速率不一致造成
-      //$("#content").load("<?php echo base_url("article/id/1"); ?>");
-
-      //对content中的img元素添加img-fluid属性，可以使图片自动缩放
-      $("#content img").addClass("img-fluid");
+      /*
+        对content中的img元素添加img-fluid属性，使图片自动缩放
+        对img元素的父元素p，添加text-center属性，使图片居中
+        bootstrap4自带的mx-auto属性也可以使图片居中，但是在这里莫名地不生效
+       */
+      $("#content img").addClass("img-fluid").parent().addClass("text-center");
     </script>
   </body>
 </html>

@@ -21,10 +21,8 @@
 		  } else {
 			  $res['found']=true;
 			  $res['data']=$data; //把查询到的数据传到$res数组中
-			  echo $data->content;
 		  }
-
-		  //print_r($data);
+		  return $data;
 	  }
 
   }
